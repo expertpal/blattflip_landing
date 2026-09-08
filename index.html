@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Blattflip – die einfache Schulbibliothek</title>
-    <meta
-        name="description"
-        content="Blattflip – die einfache Schulbibliothek."
-    >
+    <meta name="description" content="Blattflip – die einfache Schulbibliothek.">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;450;500;600;700;750;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
         }
 
         body {
@@ -22,8 +27,7 @@
             justify-content: center;
             align-items: center;
 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, Helvetica, Arial, sans-serif;
+            font-family: "Manrope", sans-serif;
 
             background: #f8f6ef;
             color: #20201e;
@@ -31,7 +35,7 @@
 
         .container {
             text-align: center;
-            padding: 40px 24px;
+            padding: 40px 24px 90px;
         }
 
         .logo {
@@ -43,11 +47,11 @@
             margin: 0;
             font-size: clamp(4rem, 12vw, 7rem);
             line-height: 0.95;
-            font-weight: 750;
+            font-weight: 800;
             letter-spacing: -0.07em;
         }
 
-        /* little "page flip" */
+        /* Abstract page fold / kite */
         .flip {
             position: absolute;
             width: 38px;
@@ -65,17 +69,42 @@
             transform: rotate(13deg);
         }
 
-        p {
+        .claim {
             margin: 24px 0 0;
             font-size: clamp(1.25rem, 3vw, 1.7rem);
-            font-weight: 450;
+            font-weight: 500;
             letter-spacing: -0.02em;
         }
 
-        .origin {
-            margin-top: 14px;
-            font-size: 0.9rem;
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 22px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            font-size: 0.82rem;
+        }
+
+        footer a {
             color: #77736b;
+            text-decoration: none;
+        }
+
+        footer a:hover,
+        footer a:focus-visible {
+            color: #20201e;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 520px) {
+            .flip {
+                width: 30px;
+                height: 30px;
+                top: -13px;
+                right: -23px;
+            }
         }
     </style>
 </head>
@@ -87,8 +116,12 @@
             <span class="flip" aria-hidden="true"></span>
         </div>
 
-        <p>die einfache Schulbibliothek</p>
-        <div class="origin">Für Schulen in Deutschland entwickelt.</div>
+        <p class="claim">die einfache Schulbibliothek</p>
     </main>
+
+    <footer>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+    </footer>
 </body>
 </html>
