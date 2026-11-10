@@ -365,7 +365,9 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            padding: clamp(48px, 8vw, 72px) 0;
+            /* padding: clamp(48px, 8vw, 72px) 0; */
+            /* Temporary while the statistics section is hidden: sit closer to the hero. */
+            padding: clamp(8px, 2vw, 16px) 0 clamp(48px, 8vw, 72px);
         }
 
         .trust article {
