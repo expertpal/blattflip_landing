@@ -300,7 +300,7 @@
             position: relative;
             height: var(--h);
             display: grid;
-            grid-template-columns: repeat(12, minmax(0, 1fr));
+            grid-template-columns: repeat(var(--n, 12), minmax(0, 1fr));
             gap: clamp(4px, 1.4vw, 14px);
             align-items: end;
             border-bottom: 1px solid #b9c9b2;
@@ -333,7 +333,7 @@
 
         .months {
             display: grid;
-            grid-template-columns: repeat(12, minmax(0, 1fr));
+            grid-template-columns: repeat(var(--n, 12), minmax(0, 1fr));
             gap: clamp(4px, 1.4vw, 14px);
             margin-top: 8px;
             font-size: 0.72rem;
@@ -474,6 +474,195 @@
             flex-shrink: 0;
         }
 
+        .contact .mail a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact .mail a:hover {
+            color: var(--ink);
+            text-decoration: underline;
+        }
+
+        /* ---------- Contact modal ---------- */
+
+        .modal {
+            width: min(520px, calc(100% - 32px));
+            max-height: calc(100dvh - 32px);
+            padding: 0;
+            border: 0;
+            border-radius: var(--radius);
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: 0 24px 80px rgba(32, 32, 30, 0.25);
+        }
+
+        .modal::backdrop {
+            background: rgba(32, 32, 30, 0.45);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal[open] {
+            animation: modal-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes modal-in {
+            from { opacity: 0; transform: translateY(12px) scale(0.98); }
+        }
+
+        .modal-body {
+            position: relative;
+            padding: clamp(24px, 5vw, 40px);
+        }
+
+        .modal h2 {
+            font-size: clamp(1.4rem, 4vw, 1.75rem);
+            padding-right: 40px;
+        }
+
+        .modal-intro {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 50%;
+            background: transparent;
+            color: var(--quiet);
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            background: var(--sand);
+            color: var(--ink);
+        }
+
+        .form {
+            display: grid;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .field .optional {
+            font-weight: 400;
+            color: var(--quiet);
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d6d2c4;
+            border-radius: 10px;
+            background: #fffdf7;
+            color: var(--ink);
+            font: inherit;
+            font-size: 1rem; /* >=16px avoids iOS zoom on focus */
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .field textarea {
+            min-height: 96px;
+            resize: vertical;
+        }
+
+        .field input:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(56, 121, 99, 0.18);
+        }
+
+        .field input[aria-invalid="true"] {
+            border-color: #c0412f;
+        }
+
+        .field-error {
+            margin-top: 6px;
+            font-size: 0.8rem;
+            color: #b03a2a;
+        }
+
+        .hp {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .form .button {
+            justify-content: center;
+            border: 0;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 4px;
+        }
+
+        .form .button[disabled] {
+            opacity: 0.6;
+            cursor: progress;
+            transform: none;
+        }
+
+        .form-error {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #b03a2a;
+        }
+
+        .form-error a {
+            color: inherit;
+        }
+
+        .modal-success {
+            text-align: center;
+            padding: 24px 0 8px;
+        }
+
+        .modal-success .check {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--mint);
+            color: var(--green);
+        }
+
+        .modal-success p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .modal-success .button {
+            border: 0;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
         /* ---------- Footer ---------- */
 
         footer {
@@ -484,6 +673,11 @@
             padding: 40px 0 32px;
             font-size: 0.82rem;
             color: var(--quiet);
+        }
+
+        footer span a {
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
 
         footer nav {
@@ -600,6 +794,8 @@
         <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/> <circle cx="9" cy="7" r="4"/> <path d="M22 21v-2a4 4 0 0 0-3-3.87"/> <path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
         <symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v4"/> <path d="M16 2v4"/> <rect width="18" height="18" x="3" y="4" rx="2"/> <path d="M3 10h18"/> <path d="m9 16 2 2 4-4"/></symbol>
         <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
         <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
     </svg>
 
@@ -612,7 +808,7 @@
             <p class="claim">die einfache Schulbibliothek</p>
             <p class="intro">Mit Blattflip kann schon eine einzelne Lehrkraft oder ein Elternteil die Schulbibliothek für die ganze Schule verwalten.</p>
             <div class="hero-actions">
-                <a class="button" href="#kontakt">Für Ihre Schule anfragen <svg class="icon"><use href="#i-arrow"/></svg></a>
+                <a class="button" href="#kontakt" data-open-contact>Für Ihre Schule anfragen <svg class="icon"><use href="#i-arrow"/></svg></a>
                 <a class="text-link" href="#einblick">Einblick in eine Schulbibliothek</a>
             </div>
         </header>
@@ -621,23 +817,23 @@
             <div class="proof-head">
                 <div>
                     <div class="eyebrow">Ein Einblick aus dem Schulalltag</div>
-                    <h2 id="proof-title">Eine Schulbibliothek in Düsseldorf.<br>Viele kleine Lesemomente.</h2>
+                    <h2 id="proof-title">Eine Schulbibliothek in <span data-stat="city">Düsseldorf</span>.<br>Viele kleine Lesemomente.</h2>
                     <p class="sub">So sieht der Bibliotheksalltag an einer Schule aus, die Blattflip nutzt.</p>
                 </div>
                 <dl class="metrics">
-                    <div><dt>Bücher im Bestand</dt><dd>691</dd></div>
-                    <div><dt>Kinder an der Schule</dt><dd>~450</dd></div>
-                    <div><dt>ehrenamtliche Helfer</dt><dd>~30</dd></div>
+                    <div><dt>Bücher im Bestand</dt><dd data-stat="booksInStock">–</dd></div>
+                    <div><dt>Kinder an der Schule</dt><dd data-stat="students">–</dd></div>
+                    <div><dt>ehrenamtliche Helfer</dt><dd data-stat="volunteers">–</dd></div>
                 </dl>
             </div>
 
             <div class="chart-card">
                 <div class="chart-top">
                     <h3 class="chart-title">Erfasste Ausleihen pro Monat</h3>
-                    <span class="chart-period">Nov. 2025 – Okt. 2026 · Beispieldaten</span>
+                    <span class="chart-period"></span>
                 </div>
                 <div class="chart" role="group" aria-label="Balkendiagramm der Ausleihen pro Monat. Monat auswählen, um den Wert zu sehen.">
-                    <div class="axis" aria-hidden="true"><span style="top:0">400</span><span style="top:25%">300</span><span style="top:50%">200</span><span style="top:75%">100</span><span style="top:100%">0</span></div>
+                    <div class="axis" aria-hidden="true"></div>
                     <div class="plot">
                         <div class="bars"></div>
                         <div class="months" aria-hidden="true"></div>
@@ -705,15 +901,15 @@
             <div>
                 <h2 id="contact-title">Auch etwas für Ihre Schule?</h2>
                 <p>Wir suchen weitere Schulen, die Blattflip nutzen und mit ihrem Feedback weiterentwickeln möchten.</p>
-                <p class="mail">mcs@expertpal.io</p>
+                <p class="mail"><a href="mailto:hello@blattflip.de">hello@blattflip.de</a></p>
             </div>
-            <a class="button" href="mailto:mcs@expertpal.io?subject=Blattflip%20an%20unserer%20Schule&amp;body=Hallo%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20Blattflip%20f%C3%BCr%20unsere%20Schulbibliothek.%0A%0AUnsere%20Schule%3A%20">
-                <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Kontakt aufnehmen
+            <a class="button" href="mailto:hello@blattflip.de?subject=Blattflip%20an%20unserer%20Schule" data-open-contact>
+                Für Ihre Schule anfragen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
         </section>
 
         <footer>
-            <span>blattflip · ein Projekt von expertpal UG</span>
+            <span>blattflip · ein Projekt von <a href="https://expertpal.de/?utm_source=blattflip" target="_blank" rel="noopener">expertpal UG</a></span>
             <nav aria-label="Rechtliches">
                 <a href="impressum.html">Impressum</a>
                 <a href="datenschutz.html">Datenschutz</a>
@@ -721,46 +917,118 @@
         </footer>
     </main>
 
+    <dialog class="modal" id="contact-modal" aria-labelledby="modal-title">
+        <div class="modal-body">
+            <button type="button" class="modal-close" data-close aria-label="Schließen">
+                <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+            </button>
+            <h2 id="modal-title">Blattflip an Ihrer Schule</h2>
+
+            <div class="modal-form">
+                <p class="modal-intro">Hinterlassen Sie Ihre Kontaktdaten. Wir melden uns zeitnah persönlich bei Ihnen, um zu besprechen, ob Blattflip zu Ihrer Schulbibliothek passt.</p>
+                <form class="form" novalidate>
+                    <div class="field">
+                        <label for="cf-name">Ihr Name <span class="optional">(optional)</span></label>
+                        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="200">
+                    </div>
+                    <div class="field">
+                        <label for="cf-email">E-Mail-Adresse</label>
+                        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="cf-email-error">
+                        <p class="field-error" id="cf-email-error" hidden>Bitte geben Sie eine gültige E-Mail-Adresse ein.</p>
+                    </div>
+                    <div class="field">
+                        <label for="cf-school">Schule</label>
+                        <input id="cf-school" name="school" type="text" autocomplete="organization" maxlength="200" required aria-describedby="cf-school-error">
+                        <p class="field-error" id="cf-school-error" hidden>Bitte geben Sie Ihre Schule an.</p>
+                    </div>
+                    <div class="field">
+                        <label for="cf-message">Ihre Nachricht <span class="optional">(optional)</span></label>
+                        <textarea id="cf-message" name="message" maxlength="2000"></textarea>
+                    </div>
+                    <div class="hp" aria-hidden="true">
+                        <label for="cf-website">Website</label>
+                        <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+                    <p class="form-error" role="alert" hidden>Ihre Anfrage konnte leider nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns an <a href="mailto:hello@blattflip.de">hello@blattflip.de</a>.</p>
+                    <button type="submit" class="button">Anfrage senden</button>
+                </form>
+            </div>
+
+            <div class="modal-success" hidden>
+                <div class="check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></div>
+                <p role="status">Vielen Dank für Ihr Interesse! Wir melden uns bald bei Ihnen, um zu besprechen, wie Blattflip an Ihrer Schule eingesetzt werden könnte.</p>
+                <button type="button" class="button" data-close>Schließen</button>
+            </div>
+        </div>
+    </dialog>
+
     <script>
+        /*
+         * API contract: see docs/api-contract.md
+         * API_BASE is empty for same-origin requests; set it to e.g. "https://api.blattflip.de" if the API lives elsewhere.
+         */
+        const API_BASE = '';
+        const STATS_URL = API_BASE + '/api/v1/public/library-stats';
+        const CONTACT_URL = API_BASE + '/api/v1/public/contact-requests';
+
+        // Shown until (or if) the endpoint responds. Same shape as the GET /library-stats response.
+        const FALLBACK_STATS = {
+            schemaVersion: 1,
+            generatedAt: '2026-11-01T03:00:00Z',
+            isSample: true,
+            library: { city: 'Düsseldorf' },
+            metrics: {
+                booksInStock: { value: 691, approximate: false },
+                students: { value: 450, approximate: true },
+                volunteers: { value: 30, approximate: true }
+            },
+            loansPerMonth: [
+                { month: '2025-11', count: 280 }, { month: '2025-12', count: 190 },
+                { month: '2026-01', count: 255 }, { month: '2026-02', count: 300 },
+                { month: '2026-03', count: 345 }, { month: '2026-04', count: 180 },
+                { month: '2026-05', count: 290 }, { month: '2026-06', count: 365 },
+                { month: '2026-07', count: 120 }, { month: '2026-08', count: 65 },
+                { month: '2026-09', count: 355 }, { month: '2026-10', count: 320 }
+            ]
+        };
+
+        /* ---------- Statistics block ---------- */
         (() => {
-            const MAX = 400;
-            const months = [
-                ['Nov', 'November 2025', 280], ['Dez', 'Dezember 2025', 190], ['Jan', 'Januar 2026', 255],
-                ['Feb', 'Februar 2026', 300], ['Mär', 'März 2026', 345], ['Apr', 'April 2026', 180],
-                ['Mai', 'Mai 2026', 290], ['Jun', 'Juni 2026', 365], ['Jul', 'Juli 2026', 120],
-                ['Aug', 'August 2026', 65], ['Sep', 'September 2026', 355], ['Okt', 'Oktober 2026', 320]
-            ];
+            const MONTHS_SHORT = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+            const MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+            const nf = new Intl.NumberFormat('de-DE');
+
             const bars = document.querySelector('.bars');
             const labels = document.querySelector('.months');
+            const axis = document.querySelector('.axis');
             const detail = document.querySelector('.chart-detail');
+            const period = document.querySelector('.chart-period');
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const canObserve = 'IntersectionObserver' in window;
 
-            const buttons = months.map(([short, long, value]) => {
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.className = 'bar';
-                button.dataset.height = (value / MAX * 100) + '%';
-                button.setAttribute('aria-label', long + ': ' + value + ' Ausleihen');
-                const select = () => {
-                    buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-                    detail.innerHTML = '<strong>' + long + '</strong> · ' + value + ' Ausleihen';
-                };
-                button.addEventListener('click', select);
-                button.addEventListener('mouseenter', select);
-                button.addEventListener('focus', select);
-                bars.append(button);
-
-                const label = document.createElement('span');
-                label.textContent = short;
-                labels.append(label);
-
-                return button;
-            });
-
-            buttons[buttons.length - 1].dispatchEvent(new Event('focus'));
-
+            let buttons = [];
             let grown = false;
             let settleTimer;
+
+            const parseMonth = ym => {
+                const [y, m] = ym.split('-').map(Number);
+                return { year: y, index: m - 1 };
+            };
+
+            // Round the axis maximum up to a "nice" value divisible into 4 steps.
+            const niceMax = max => {
+                if (max <= 0) return 4;
+                const step = Math.pow(10, Math.floor(Math.log10(max / 4)));
+                for (const f of [1, 2, 2.5, 5, 10]) {
+                    if (f * step * 4 >= max) return f * step * 4;
+                }
+                return max;
+            };
+
+            const formatMetric = m => m && Number.isFinite(m.value)
+                ? (m.approximate ? '~' : '') + nf.format(m.value)
+                : '–';
+
             // Staggered delays + overshoot easing: bars rise left to right like a wave and settle.
             const grow = () => {
                 if (grown) return;
@@ -773,22 +1041,21 @@
                 settleTimer = setTimeout(() => buttons.forEach(b => { b.style.transitionDelay = ''; }), buttons.length * 70 + 900);
             };
 
-            if (reduceMotion || !('IntersectionObserver' in window)) {
-                grow();
-                return;
-            }
-
-            const observer = new IntersectionObserver(entries => {
+            const observer = canObserve ? new IntersectionObserver(entries => {
                 if (entries.some(e => e.isIntersecting)) {
                     grow();
                     observer.disconnect();
                 }
-            }, { threshold: 0.3 });
-            observer.observe(bars);
+            }, { threshold: 0.3 }) : null;
 
-            // Replay the wave whenever the "Einblick" link is used.
-            document.querySelectorAll('a[href="#einblick"]').forEach(link => link.addEventListener('click', () => {
+            // Collapse bars and wait until the chart is visible to play the wave.
+            const arm = () => {
                 clearTimeout(settleTimer);
+                grown = false;
+                if (reduceMotion || !observer) {
+                    grow();
+                    return;
+                }
                 buttons.forEach(b => {
                     b.style.transition = 'none';
                     b.style.transitionDelay = '';
@@ -796,10 +1063,180 @@
                 });
                 void bars.offsetHeight;
                 buttons.forEach(b => { b.style.transition = ''; });
-                grown = false;
                 observer.disconnect();
                 observer.observe(bars);
+            };
+
+            const render = data => {
+                document.querySelectorAll('[data-stat]').forEach(el => {
+                    const key = el.dataset.stat;
+                    if (key === 'city') {
+                        if (data.library && data.library.city) el.textContent = data.library.city;
+                    } else {
+                        el.textContent = formatMetric(data.metrics && data.metrics[key]);
+                    }
+                });
+
+                const months = (data.loansPerMonth || []).map(({ month, count }) => {
+                    const { year, index } = parseMonth(month);
+                    return { short: MONTHS_SHORT[index], long: MONTHS_LONG[index] + ' ' + year, year, index, count };
+                });
+
+                if (months.length) {
+                    const first = months[0];
+                    const last = months[months.length - 1];
+                    period.textContent = MONTHS_SHORT[first.index] + '. ' + first.year + ' – ' + MONTHS_SHORT[last.index] + '. ' + last.year
+                        + (data.isSample ? ' · Beispieldaten' : '');
+                } else {
+                    period.textContent = '';
+                }
+
+                const max = niceMax(Math.max(0, ...months.map(m => m.count)));
+                axis.innerHTML = [4, 3, 2, 1, 0]
+                    .map((n, i) => '<span style="top:' + (i * 25) + '%">' + nf.format(max * n / 4) + '</span>')
+                    .join('');
+
+                bars.style.setProperty('--n', months.length || 1);
+                labels.style.setProperty('--n', months.length || 1);
+                bars.replaceChildren();
+                labels.replaceChildren();
+
+                buttons = months.map(m => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'bar';
+                    button.dataset.height = (m.count / max * 100) + '%';
+                    button.setAttribute('aria-label', m.long + ': ' + nf.format(m.count) + ' Ausleihen');
+                    const select = () => {
+                        buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+                        detail.innerHTML = '<strong>' + m.long + '</strong> · ' + nf.format(m.count) + ' Ausleihen';
+                    };
+                    button.addEventListener('click', select);
+                    button.addEventListener('mouseenter', select);
+                    button.addEventListener('focus', select);
+                    bars.append(button);
+
+                    const label = document.createElement('span');
+                    label.textContent = m.short;
+                    labels.append(label);
+                    return button;
+                });
+
+                if (buttons.length) {
+                    buttons[buttons.length - 1].dispatchEvent(new Event('focus'));
+                } else {
+                    detail.textContent = '';
+                }
+
+                arm();
+            };
+
+            const isValid = d => d && d.schemaVersion === 1 && d.metrics && Array.isArray(d.loansPerMonth)
+                && d.loansPerMonth.every(m => /^\d{4}-(0[1-9]|1[0-2])$/.test(m.month) && Number.isFinite(m.count) && m.count >= 0);
+
+            render(FALLBACK_STATS);
+
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 5000);
+            fetch(STATS_URL, { headers: { Accept: 'application/json' }, signal: controller.signal })
+                .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
+                .then(data => { if (isValid(data)) render(data); })
+                .catch(() => { /* keep fallback */ })
+                .finally(() => clearTimeout(timeout));
+
+            // Replay the wave whenever the "Einblick" link is used.
+            document.querySelectorAll('a[href="#einblick"]').forEach(link => link.addEventListener('click', arm));
+        })();
+
+        /* ---------- Contact modal ---------- */
+        (() => {
+            const modal = document.getElementById('contact-modal');
+            const form = modal.querySelector('form');
+            const formView = modal.querySelector('.modal-form');
+            const successView = modal.querySelector('.modal-success');
+            const formError = form.querySelector('.form-error');
+            const submit = form.querySelector('button[type="submit"]');
+            const email = form.elements.email;
+            const school = form.elements.school;
+
+            if (typeof modal.showModal !== 'function') return; // fall back to links (mailto / #kontakt)
+
+            const reset = () => {
+                form.reset();
+                formView.hidden = false;
+                successView.hidden = true;
+                formError.hidden = true;
+                [email, school].forEach(f => setInvalid(f, false));
+            };
+
+            const setInvalid = (field, invalid) => {
+                field.setAttribute('aria-invalid', String(invalid));
+                document.getElementById(field.getAttribute('aria-describedby')).hidden = !invalid;
+            };
+
+            const validate = () => {
+                const emailOk = email.value.trim() !== '' && email.checkValidity();
+                const schoolOk = school.value.trim() !== '';
+                setInvalid(email, !emailOk);
+                setInvalid(school, !schoolOk);
+                if (!emailOk) email.focus();
+                else if (!schoolOk) school.focus();
+                return emailOk && schoolOk;
+            };
+
+            document.querySelectorAll('[data-open-contact]').forEach(el => el.addEventListener('click', e => {
+                e.preventDefault();
+                if (!successView.hidden) reset();
+                modal.showModal();
             }));
+
+            modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', () => modal.close()));
+
+            // Close when clicking the backdrop.
+            modal.addEventListener('click', e => {
+                if (e.target === modal) modal.close();
+            });
+
+            modal.addEventListener('close', () => {
+                if (!successView.hidden) reset();
+            });
+
+            [email, school].forEach(f => f.addEventListener('input', () => {
+                if (f.getAttribute('aria-invalid') === 'true') setInvalid(f, false);
+            }));
+
+            form.addEventListener('submit', async e => {
+                e.preventDefault();
+                formError.hidden = true;
+                if (!validate()) return;
+
+                const payload = {
+                    name: form.elements.name.value.trim() || null,
+                    email: email.value.trim(),
+                    school: school.value.trim(),
+                    message: form.elements.message.value.trim() || null,
+                    website: form.elements.website.value, // honeypot, must stay empty
+                    source: 'landing',
+                    utm: Object.fromEntries([...new URLSearchParams(location.search)].filter(([k]) => k.startsWith('utm_')))
+                };
+
+                submit.disabled = true;
+                try {
+                    const res = await fetch(CONTACT_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error(String(res.status));
+                    formView.hidden = true;
+                    successView.hidden = false;
+                    successView.querySelector('button').focus();
+                } catch (err) {
+                    formError.hidden = false;
+                } finally {
+                    submit.disabled = false;
+                }
+            });
         })();
     </script>
 </body>
