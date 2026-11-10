@@ -1138,13 +1138,14 @@
 
             render(FALLBACK_STATS);
 
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 5000);
-            fetch(STATS_URL, { headers: { Accept: 'application/json' }, signal: controller.signal })
-                .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
-                .then(data => { if (isValid(data)) render(data); })
-                .catch(() => { /* keep fallback */ })
-                .finally(() => clearTimeout(timeout));
+            // Stats loading disabled for now; the fallback stats stay.
+            // const controller = new AbortController();
+            // const timeout = setTimeout(() => controller.abort(), 5000);
+            // fetch(STATS_URL, { headers: { Accept: 'application/json' }, signal: controller.signal })
+            // .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
+            // .then(data => { if (isValid(data)) render(data); })
+            // .catch(() => { /* keep fallback */ })
+            // .finally(() => clearTimeout(timeout));
 
             // Replay the wave whenever the "Einblick" link is used.
             document.querySelectorAll('a[href="#einblick"]').forEach(link => link.addEventListener('click', arm));
