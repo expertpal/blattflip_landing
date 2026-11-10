@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blattflip – Landingpage-Entwurf</title>
+<style>html,body{margin:0;background:#f8f6ef}button{cursor:pointer}</style>
+<!-- Lucide icon license:
+ISC License
+
+Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+-->
+</head>
+<body>
+<div id="blattflip-concept" lang="de">
+ <style>
+ #blattflip-concept{--paper:#f8f6ef;--ink:#22231f;--quiet:#66675f;--line:#dcded2;--mint:#eaf1e5;--green:#387963;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif;padding:34px clamp(20px,5vw,64px) 24px;color-scheme:light}
+ #blattflip-concept *{box-sizing:border-box}#blattflip-concept h1,#blattflip-concept h2,#blattflip-concept h3,#blattflip-concept p{margin:0}#blattflip-concept button{font:inherit;color:inherit}#blattflip-concept .bf-inner{max-width:880px;margin:auto}#blattflip-concept .bf-draft{font-size:11px;color:var(--quiet);letter-spacing:.08em;text-transform:uppercase}#blattflip-concept .bf-hero{text-align:center;padding:56px 0 54px}#blattflip-concept .bf-logo{display:inline-block;position:relative;font-size:clamp(54px,10vw,86px);font-weight:800;letter-spacing:-.075em;line-height:1.1}#blattflip-concept .bf-flip{position:absolute;right:-23px;top:-7px;width:27px;height:30px;border-radius:2px 11px 2px 11px;transform:rotate(13deg);background:linear-gradient(135deg,#ff6b57 0 33%,#ffd84d 33% 66%,#6fc7b5 66%)}#blattflip-concept .bf-claim{font-size:24px;margin:16px 0 22px;letter-spacing:-.04em}#blattflip-concept .bf-intro{font-size:15px;line-height:1.75;color:var(--quiet);max-width:560px;margin:auto}#blattflip-concept .bf-proof{background:var(--mint);border:1px solid #d2ddcb;border-radius:22px;padding:clamp(20px,4vw,36px)}#blattflip-concept .bf-eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:12px}#blattflip-concept h2{font-size:clamp(23px,4vw,30px);font-weight:650;line-height:1.25;letter-spacing:-.04em}#blattflip-concept .bf-sub{font-size:14px;line-height:1.65;color:var(--quiet);margin-top:10px}#blattflip-concept .bf-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;padding-bottom:25px;border-bottom:1px solid #ccd8c6}#blattflip-concept .bf-number{display:block;font-size:clamp(27px,5vw,43px);letter-spacing:-.05em;font-weight:650}#blattflip-concept .bf-metric-label{display:block;font-size:12px;line-height:1.5;color:#525b4f;margin-top:4px}#blattflip-concept .bf-chart-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;font-size:13px;margin-bottom:12px}#blattflip-concept .bf-period{font-size:11px;color:var(--quiet)}#blattflip-concept .bf-chart{display:grid;grid-template-columns:32px 1fr;gap:8px}#blattflip-concept .bf-axis{height:164px;display:flex;flex-direction:column;justify-content:space-between;font-size:11px;color:var(--quiet);padding-bottom:2px}#blattflip-concept .bf-bars{height:188px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(2px,1vw,13px);background:repeating-linear-gradient(to top,transparent 0px,transparent 40px,#d5dfce 40px,#d5dfce 41px);background-size:100% 164px;background-repeat:no-repeat}#blattflip-concept .bf-month{height:188px;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;min-width:0}#blattflip-concept .bf-bar{width:100%;border:0;background:#80b6a1;border-radius:4px 4px 0 0;min-height:4px;padding:0}#blattflip-concept .bf-bar:hover,#blattflip-concept .bf-bar:focus-visible,#blattflip-concept .bf-bar[aria-pressed=true]{background:#387963}#blattflip-concept .bf-month-label{height:24px;display:flex;justify-content:center;align-items:flex-end;font-size:11px;color:#525b4f}#blattflip-concept .bf-chart-detail{margin:16px 0 8px;font-size:12px;min-height:16px;color:#345b49}#blattflip-concept .bf-note{font-size:11px;line-height:1.6;color:var(--quiet)}#blattflip-concept .bf-data-note{border-top:1px solid #ccd8c6;margin-top:17px;padding-top:12px;font-size:11px;line-height:1.6;color:#5d6255}#blattflip-concept .bf-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:36px 0 54px}#blattflip-concept .bf-trust h3{font-size:14px;margin:12px 0 8px;font-weight:650}#blattflip-concept .bf-trust p{font-size:12px;line-height:1.7;color:var(--quiet)}#blattflip-concept .bf-icon{display:inline-flex;color:var(--green);width:22px;height:22px}#blattflip-concept .bf-features{display:grid;grid-template-columns:1fr 1fr;column-gap:38px;row-gap:25px;margin-top:28px}#blattflip-concept .bf-feature{display:flex;align-items:flex-start;gap:14px;border-top:1px solid var(--line);padding-top:20px}#blattflip-concept .bf-feature .bf-icon{flex-shrink:0;margin-top:3px}#blattflip-concept .bf-feature h3{font-size:15px;line-height:1.5;font-weight:650;margin-bottom:7px}#blattflip-concept .bf-feature p{font-size:13px;line-height:1.7;color:var(--quiet)}#blattflip-concept .bf-contact{margin-top:50px;padding:32px;background:#eeeade;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:25px}#blattflip-concept .bf-contact h2{font-size:23px}#blattflip-concept .bf-contact p{font-size:13px;line-height:1.7;color:var(--quiet);margin-top:8px;max-width:480px}#blattflip-concept .bf-contact-button{padding:13px 19px;border:0;border-radius:8px;background:#252923;color:#fff;font-size:13px;white-space:nowrap}#blattflip-concept .bf-contact-draft{padding:20px 0;font-size:13px;line-height:1.8;color:var(--quiet)}#blattflip-concept .bf-footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:34px;font-size:11px;color:var(--quiet)}#blattflip-concept .bf-legal{display:flex;gap:20px}@media(max-width:560px){#blattflip-concept .bf-trust{grid-template-columns:1fr;gap:23px;margin:30px 0 40px}#blattflip-concept .bf-trust article{display:grid;grid-template-columns:25px 1fr;column-gap:10px}#blattflip-concept .bf-trust h3{margin:0 0 5px}#blattflip-concept .bf-trust p{grid-column:2}#blattflip-concept .bf-features{grid-template-columns:1fr}#blattflip-concept .bf-contact{align-items:flex-start;flex-direction:column;padding:24px}#blattflip-concept .bf-hero{padding:42px 0}#blattflip-concept .bf-metrics{gap:10px}#blattflip-concept .bf-month-label{font-size:10px}#blattflip-concept .bf-claim{font-size:21px}}
+ </style>
+ <div class="bf-inner">
+ <div class="bf-draft">Gestaltungsentwurf · Zahlen teilweise beispielhaft</div>
+ <header class="bf-hero"><h1 class="bf-logo">blattflip<span class="bf-flip" aria-hidden="true"></span></h1><p class="bf-claim">die einfache Schulbibliothek</p><p class="bf-intro">Damit mehr Zeit für Bücher bleibt.<br>Blattflip hilft Lehrkräften und ehrenamtlichen Eltern, ihre Schulbibliothek gemeinsam zu organisieren.</p></header>
+ <section class="bf-proof" aria-labelledby="bf-proof-title">
+ <div class="bf-eyebrow">Ein Einblick aus dem Schulalltag</div>
+ <h2 id="bf-proof-title">Eine Schulbibliothek in Düsseldorf.<br>Viele kleine Lesemomente.</h2>
+ <p class="bf-sub">So sieht der Bibliotheksalltag an einer Schule aus, die Blattflip nutzt.</p>
+ <div class="bf-metrics"><div><span class="bf-number">691</span><span class="bf-metric-label">Bücher im Bestand</span></div><div><span class="bf-number">~450</span><span class="bf-metric-label">Kinder an der Schule</span></div><div><span class="bf-number">~30</span><span class="bf-metric-label">ehrenamtliche Helfer</span></div></div>
+ <div class="bf-chart-top"><strong>Erfasste Ausleihen pro Monat</strong><span class="bf-period">Nov. 2025 – Okt. 2026 · Beispieldaten</span></div>
+ <div class="bf-chart" role="group" aria-label="Illustrativer Balkenchart, keine tatsächlichen Ausleihzahlen. Monat auswählen, um Beispielwert zu sehen."><div class="bf-axis" aria-hidden="true"><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span></div><div class="bf-bars"></div></div>
+ <div class="bf-chart-detail" aria-live="polite">Oktober 2026 · 320 Ausleihen (Beispiel)</div>
+ <p class="bf-note">Abgeschlossene Monate. Schulferien und Öffnungstage beeinflussen die Anzahl der Ausleihen.</p>
+ <p class="bf-data-note">Entwurfsdaten: Bestand aus dem Screenshot vom 10.11.2026; Schulgröße und Helferzahl noch bestätigen. Die Monatswerte dienen ausschließlich der Gestaltung.</p>
+ </section>
+ <section class="bf-trust" aria-label="Unsere Grundsätze">
+ <article><span class="bf-icon"><svg aria-hidden="true" focusable="false"
+  class="lucide lucide-eye-off"
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+  <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+  <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+  <path d="m2 2 20 20" />
+</svg></span><h3>Kein Werbetracking</h3><p>Keine Werbeprofile. Der Bibliotheksalltag steht im Mittelpunkt.</p></article>
+ <article><span class="bf-icon"><svg aria-hidden="true" focusable="false"
+  class="lucide lucide-shield-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+  <path d="m9 12 2 2 4-4" />
+</svg></span><h3>Datensparsam gestaltet</h3><p>Für die Ausleihe: Vorname und Nachnamensinitial statt vollständiger Kinderprofile.</p></article>
+ <article><span class="bf-icon"><svg aria-hidden="true" focusable="false"
+  class="lucide lucide-school"
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 22v-4a2 2 0 1 0-4 0v4" />
+  <path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" />
+  <path d="M18 5v17" />
+  <path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" />
+  <path d="M6 5v17" />
+  <circle cx="12" cy="9" r="2" />
+</svg></span><h3>Aus dem Schulalltag</h3><p>In einer echten Schulbibliothek entwickelt und im täglichen Einsatz weitergedacht.</p></article>
+ </section>
+ <section aria-labelledby="bf-feature-title"><div class="bf-eyebrow">Einfach im Alltag</div><h2 id="bf-feature-title">Alles für die nächste Ausleihe.<br>Und das nächste Schuljahr.</h2><div class="bf-features">
+ <article class="bf-feature"><span class="bf-icon"><svg aria-hidden="true" focusable="false"
+  class="lucide lucide-scan-line"
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+  <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+  <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+  <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+  <path d="M7 12h10" />
+</svg></span><div><h3>Scannen. Ausleihen. Fertig.</h3><p>Ausleihe und Rückgabe per Scanner erfassen – mit kurzen Wegen durch die Anwendung.</p></div></article>
+ <article class="bf-feature"><span class="bf-icon"><svg aria-hidden="true" focusable="false"
+  class="lucide lucide-book-open"
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 7v14" />
+  <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+</svg></span><div><h3>Den Überblick behalten</h3><p>Direkt sehen, welche Bücher ausgeliehen sind und welche Rückgaben überfällig sind.</p></div></article>
+ <article class="bf-feature"><span class="bf-icon"><svg aria-hidden="true" focusable="false"
+  class="lucide lucide-users"
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <circle cx="9" cy="7" r="4" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+</svg></span><div><h3>Schüler und Klassen organisieren</h3><p>Kinder ihren Klassen zuordnen und Schülerlisten übersichtlich verwalten.</p></div></article>
+ <article class="bf-feature"><span class="bf-icon"><svg aria-hidden="true" focusable="false"
+  class="lucide lucide-calendar-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8 2v4" />
+  <path d="M16 2v4" />
+  <rect width="18" height="18" x="3" y="4" rx="2" />
+  <path d="M3 10h18" />
+  <path d="m9 16 2 2 4-4" />
+</svg></span><div><h3>Entspannt ins neue Schuljahr</h3><p>Den Schuljahreswechsel in wenigen Klicks vorbereiten und durchführen.</p></div></article>
+ </div></section>
+ <section class="bf-contact"><div><h2>Auch etwas für Ihre Schule?</h2><p>Wir suchen weitere Schulen, die Blattflip nutzen und mit ihrem Feedback weiterentwickeln möchten.</p></div><button type="button" class="bf-contact-button" aria-expanded="false" aria-controls="bf-contact-draft">Kontakt aufnehmen ↗</button></section>
+ <div id="bf-contact-draft" class="bf-contact-draft" hidden><strong>Kontakt per E-Mail</strong><br>Betreff: Blattflip an unserer Schule<br>„Hallo, wir interessieren uns für Blattflip für unsere Schulbibliothek. Unsere Schule: …“<br><small>Vorschau: Die Kontaktadresse wird vor Veröffentlichung ergänzt. Es wird keine Nachricht gesendet.</small></div>
+ <footer class="bf-footer"><span>blattflip · ein Projekt von expertpal UG</span><div class="bf-legal"><span>Impressum</span><span>Datenschutz</span></div></footer>
+ </div>
+ <script>
+ (()=>{const root=document.getElementById('blattflip-concept');const months=[['Nov','November 2025',280],['Dez','Dezember 2025',190],['Jan','Januar 2026',255],['Feb','Februar 2026',300],['Mär','März 2026',345],['Apr','April 2026',180],['Mai','Mai 2026',290],['Jun','Juni 2026',365],['Jul','Juli 2026',120],['Aug','August 2026',65],['Sep','September 2026',355],['Okt','Oktober 2026',320]];const bars=root.querySelector('.bf-bars');months.forEach(([short,long,value],index)=>{const col=document.createElement('div');col.className='bf-month';const button=document.createElement('button');button.type='button';button.className='bf-bar';button.style.height=(value/400*164)+'px';button.setAttribute('aria-label',long+': '+value+' Ausleihen, Beispieldaten');button.setAttribute('aria-pressed',String(index===11));const select=()=>{root.querySelectorAll('.bf-bar').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));root.querySelector('.bf-chart-detail').textContent=long+' · '+value+' Ausleihen (Beispiel)';};button.addEventListener('click',select);button.addEventListener('mouseenter',select);button.addEventListener('focus',select);const label=document.createElement('span');label.className='bf-month-label';label.textContent=short;col.append(button,label);bars.append(col);});const contact=root.querySelector('.bf-contact-button');contact.addEventListener('click',()=>{const panel=root.querySelector('#bf-contact-draft');panel.hidden=!panel.hidden;contact.setAttribute('aria-expanded',String(!panel.hidden));});})();
+ </script>
+</div>
+</body>
+</html>
