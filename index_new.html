@@ -760,6 +760,7 @@
             buttons[buttons.length - 1].dispatchEvent(new Event('focus'));
 
             let grown = false;
+            let settleTimer;
             // Staggered delays + overshoot easing: bars rise left to right like a wave and settle.
             const grow = () => {
                 if (grown) return;
@@ -768,20 +769,37 @@
                     b.style.transitionDelay = '0s, ' + (i * 70) + 'ms';
                     b.style.height = b.dataset.height;
                 });
-                setTimeout(() => buttons.forEach(b => { b.style.transitionDelay = ''; }), buttons.length * 70 + 900);
+                clearTimeout(settleTimer);
+                settleTimer = setTimeout(() => buttons.forEach(b => { b.style.transitionDelay = ''; }), buttons.length * 70 + 900);
             };
 
             if (reduceMotion || !('IntersectionObserver' in window)) {
                 grow();
-            } else {
-                const observer = new IntersectionObserver(entries => {
-                    if (entries.some(e => e.isIntersecting)) {
-                        grow();
-                        observer.disconnect();
-                    }
-                }, { threshold: 0.3 });
-                observer.observe(bars);
+                return;
             }
+
+            const observer = new IntersectionObserver(entries => {
+                if (entries.some(e => e.isIntersecting)) {
+                    grow();
+                    observer.disconnect();
+                }
+            }, { threshold: 0.3 });
+            observer.observe(bars);
+
+            // Replay the wave whenever the "Einblick" link is used.
+            document.querySelectorAll('a[href="#einblick"]').forEach(link => link.addEventListener('click', () => {
+                clearTimeout(settleTimer);
+                buttons.forEach(b => {
+                    b.style.transition = 'none';
+                    b.style.transitionDelay = '';
+                    b.style.height = '0';
+                });
+                void bars.offsetHeight;
+                buttons.forEach(b => { b.style.transition = ''; });
+                grown = false;
+                observer.disconnect();
+                observer.observe(bars);
+            }));
         })();
     </script>
 </body>
